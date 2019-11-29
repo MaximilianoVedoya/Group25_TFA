@@ -23,8 +23,8 @@ class Command(BaseCommand):
             for squirrel in squirrels:
                 s=squirrel[5]#I use this variable to be able to parse the date form the database. 
                 p=new_sighting(
-                    Latitude=squirrel[0],
-                    Longitude=squirrel[1],
+                    Longitude=squirrel[0],
+                    Latitude=squirrel[1],
                     Unique_Squirrel_ID =squirrel[2],
                     Hectare=squirrel[3],
                     Shift=squirrel[4],
