@@ -19,7 +19,7 @@ from django.urls import path
 from sightings.views import home_view, map_view,sightings_view,add_view
 
 urlpatterns = [
-    path('home/', home_view,name='home'),
+    path('', home_view,name='home'),
     path('admin/', admin.site.urls),
     path('map/', map_view,name='map'),
     path('sightings/', sightings_view, name='sightings'),
