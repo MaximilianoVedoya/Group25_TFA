@@ -20,13 +20,11 @@
     <p>How many squirrels do you want to plot? </p>    
 
     <div id="map"></div>
-
     <p>
             {% for lat,long in Location %} 
             <li>Latitude {{lat}}, Longitude {{long}}  </li>    
             {% endfor %} 
     </p>
-
     <script>
             var mymap = L.map('map').setView([40.785091, -73.968285], 14);
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -39,18 +37,7 @@
             {% for lat,long in Location %} 
              L.marker([{{lat}},{{long}}]).addTo(mymap);   
             {% endfor %} 
-
-           
-          
-
-            
-
     
         </script>
-         
-           
-
-    
-
     </body>
 </html>
