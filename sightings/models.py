@@ -1,8 +1,8 @@
 from django.db import models
 class new_sighting (models.Model):
     
-    Latitude = models.DecimalField(max_digits=8, decimal_places=6,blank=True,null=True)
-    Longitude = models.DecimalField(max_digits=8, decimal_places=6,blank=True,null=True)
+    Latitude = models.DecimalField(max_digits=5, decimal_places=3,blank=True,null=True)
+    Longitude = models.DecimalField(max_digits=5, decimal_places=3,blank=True,null=True)
     Unique_Squirrel_ID = models.CharField(max_length=50,blank=True,null=True)
     #Not required in the problem, but I think this field is necessary to form the unique id
     Hectare=models.CharField(max_length=3,blank=True,null=True) 
