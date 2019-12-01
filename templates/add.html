@@ -2,8 +2,10 @@
 {% block content %}
 <h1> Please complete the following form</h1>
 <form method="POST"> {% csrf_token %}
+    <ul>
     {{form.as_p}}
     <input type='submit' value='Save'/>
+</ul>
 </form>
 
 {% endblock content %}

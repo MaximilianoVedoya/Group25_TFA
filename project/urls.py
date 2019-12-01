@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from sightings.views import home_view, map_view,sightings_view,add_view
+from sightings.views import home_view, map_view,sightings_view,add_view,data_view
 
 urlpatterns = [
     path('', home_view,name='home'),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('map/', map_view,name='map'),
     path('sightings/', sightings_view, name='sightings'),
     path('sightings/add', add_view, name='sightings_add'),
+    path('data/',data_view, name='data'),
 ]
