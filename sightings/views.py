@@ -3,25 +3,32 @@ from django.http import HttpResponse
 from .models import new_sighting
 from .forms import new_sighting_form 
 import json
+import random as random
 
 def home_view(request, *args,**kwargs):
     obj=new_sighting.objects.values()
-    length=new_sighting.objects.count()
+    o_length=new_sighting.objects.count()
     squirrels_month={i: 0 for i in range(1,13)}
-    
-# Creates a list with the number of sightings detected per month 
+
+    # if the data is larger than 100, chose 100 random poitns, otherwise the server fries. 
+    if o_length>100:
+        length=[random.randint(1,o_length) for i in range(100)]
+    else:
+         length=[i for i in range(1,o_length)]
+
+    # Creates a list with the number of sightings detected per month 
     for m in range (1,13):
-        for i in range (length):
+        for i in length:
                 if obj[i]["Date"].month == m:
                     squirrels_month[m]+=1
     list_squirrels=[squirrels_month[i] for i in range(1,13)]
 
     
-#creates a list that counts the number of squirrels by color
+    #creates a list that counts the number of squirrels by color
     color_={'Gray':0,'Cinnamon':0,'Black':0}
 
     for squirrel_color in ['Gray','Cinnamon','Black']:
-        for i in range(length):
+        for i in length:
             if obj[i]["Primary_Fur_Color"] == squirrel_color:
                 color_[squirrel_color]+=1
 
@@ -36,10 +43,16 @@ def home_view(request, *args,**kwargs):
     
 def map_view(request, *args,**kwargs):
     obj=new_sighting.objects.values()
-    length=new_sighting.objects.count()
-    if length>100:
-        length=100
-    location=[(obj[i]['Latitude'],obj[i]['Longitude']) for i in range(length)]
+    o_length=new_sighting.objects.count()
+
+
+    # if the data is larger than 100, chose 100 random poitns, otherwise the server fries. 
+    if o_length>100:
+        length=[random.randint(1,o_length) for i in range(100)]
+    else:
+         length=[i for i in range(1,o_length)]
+    
+    location=[(obj[i]['Latitude'],obj[i]['Longitude']) for i in length]
     squirrel_location={"Location" : location}
     return render(request,"map.html",squirrel_location)
 
@@ -56,6 +69,8 @@ def add_view(request, *args,**kwargs):
 def sightings_view(request):
     obj=new_sighting.objects.values()
     length=new_sighting.objects.count()
+    if length>100:
+        length=100
     squirrel= [
         (   obj[i]['Latitude'],
             obj[i]['Longitude'],
