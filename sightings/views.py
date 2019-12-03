@@ -5,7 +5,34 @@ from .forms import new_sighting_form
 import json
 
 def home_view(request, *args,**kwargs):
-    return render(request,"home.html",{})
+    obj=new_sighting.objects.values()
+    length=new_sighting.objects.count()
+    squirrels_month={i: 0 for i in range(1,13)}
+    
+# Creates a list with the number of sightings detected per month 
+    for m in range (1,13):
+        for i in range (length):
+                if obj[i]["Date"].month == m:
+                    squirrels_month[m]+=1
+    list_squirrels=[squirrels_month[i] for i in range(1,13)]
+
+    
+#creates a list that counts the number of squirrels by color
+    color_={'Gray':0,'Cinnamon':0,'Black':0}
+
+    for squirrel_color in ['Gray','Cinnamon','Black']:
+        for i in range(length):
+            if obj[i]["Primary_Fur_Color"] == squirrel_color:
+                color_[squirrel_color]+=1
+
+    primary_color=[color_[i] for i in ['Gray','Cinnamon','Black']]
+    
+    info={
+        "siquirrel_month": list_squirrels,
+        "primary_color": primary_color
+
+    }
+    return render(request,"home.html",info)
     
 def map_view(request, *args,**kwargs):
     obj=new_sighting.objects.values()

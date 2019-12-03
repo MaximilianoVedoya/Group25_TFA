@@ -1,7 +1,94 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>I probably will put all the stats here!</h1>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
+
+
+<h1 style= "text-align: center;">Main stats from the collected data</h1>
+
+<div class="row">
+    <div class="col-sm-6"> 
+    <canvas id="squirrels_month"></canvas>
+    </div>
+    <div class="col-sm-6"> 
+            <canvas id="Squirrel's Primary Color"></canvas>
+    </div>
+</div>
+<br>
+<div class="row">
+        <div class="col-sm-6"> 
+            <h2 style="text-align: center;">Sightings by Shift</h2>
+        <canvas id="Sightings by shift"></canvas>
+        </div>
+        <div class="col-sm-6"> 
+                <canvas id="Squirrel's Primary Color"></canvas>
+        </div>
+</div>
+ 
+
+
+<script>
+
+"Graph 1 Bar chart that represents the number of sqirrels saw per month"
+var labels_1 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Agu','Sept', 'Oct','Nov','Dec'];
+var data_1= {{siquirrel_month}} ;
+var name_1= 'squirrels_month'
+var title_1="Squirrels sightings during the year"
+var type_1="bar"
+setchart(labels_1,data_1,name_1,title_1,type_1)
+
+
+"Graph 2 Bar chart that represents the number of sqirrels saw per month"
+var labels_2 = ['Gray','Cinammon','Balck'];
+var data_2= {{primary_color}};
+var name_2= "Squirrel's Primary Color"
+var title_2="Squirrel's Primary Color"
+var type_2="bar"
+setchart(labels_2,data_2,name_2,title_2,type_2)
+
+"Graph 3 Percentage of sightings by Shift"
+var labels_3 = ['AM','PM'];
+var data_3= {{primary_color}};
+var name_3= "Sightings by shift"
+var title_3="Sightings by shift"
+var type_3="doughnut"
+setchart(labels_3,data_3,name_3,title_3,type_3)
+
+
+// "Graph 4 Actitivty Stats"
+// var labels_3 = ['Running','PM'];
+// var data_3= {{primary_color}};
+// var name_3= "Sightings by shift"
+// var title_3="Sightings by shift"
+// var type_3="doughnut"
+// setchart(labels_3,data_3,name_3,title_3,type_3)
+
+
+function setchart(label_,data_,name_,title_,type_)
+    {
+        var ctx = document.getElementById(name_).getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: type_, 
+    
+        // The data for our dataset
+        data: {
+            labels: label_ ,
+            datasets: [{
+                label: title_,
+                backgroundColor: ['rgb(255, 199, 132)','rgb(55, 199, 132)','rgb(20, 199, 132)'],
+                borderColor: ['rgb(0,0,0)','rgb(0, 0,0)'],
+                data: data_
+            }]
+        },
+    
+        // Configuration options go here
+        options: {}
+    });
+    
+    }
+    
+    </script>
 
 {% endblock content %}
