@@ -74,6 +74,21 @@ def add_view(request, *args,**kwargs):
     }
     return render(request,"add.html",context)
 
+def update_view(request, *args,**kwargs):
+    #obj=new_sighting.objects.values()
+    form= new_sighting_form(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context={
+       # 'instance' :obj, 
+        'form':form,
+    }
+    return render(request,"update.html",context)
+
+def delete_view(request, *args,**kwargs):
+    obj=new_sighting.objects.values()
+    obj.delete()
+
 def sightings_view(request):
     obj=new_sighting.objects.values()
     length=new_sighting.objects.count()
