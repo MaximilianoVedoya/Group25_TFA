@@ -31,12 +31,20 @@ def home_view(request, *args,**kwargs):
         for i in length:
             if obj[i]["Primary_Fur_Color"] == squirrel_color:
                 color_[squirrel_color]+=1
-
     primary_color=[color_[i] for i in ['Gray','Cinnamon','Black']]
     
+  
+    shift_={"AM":0, "PM":0}
+    for shift in ["AM","PM"]:
+        for i in length:
+            if obj[i]["Shift"]== shift:
+                shift_[shift]+=1
+    
+    Shift=[shift_[i] for i in ["AM","PM"]]
     info={
         "siquirrel_month": list_squirrels,
-        "primary_color": primary_color
+        "primary_color": primary_color,
+        "Shift":Shift
 
     }
     return render(request,"home.html",info)
