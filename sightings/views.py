@@ -32,6 +32,15 @@ def home_view(request, *args,**kwargs):
             if obj[i]["Primary_Fur_Color"] == squirrel_color:
                 color_[squirrel_color]+=1
     primary_color=[color_[i] for i in ['Gray','Cinnamon','Black']]
+
+     #creates a list that counts the number of squirrels by age
+    age_={'Adult':0,'Juvenile':0}
+
+    for squirrel_age in ['Adult','Juvenile']:
+        for i in length:
+            if obj[i]["Age"] == squirrel_age:
+                age_[squirrel_age]+=1
+    _Age=[age_[i] for i in ['Adult','Juvenile']]
     
   
     shift_={"AM":0, "PM":0}
@@ -41,9 +50,11 @@ def home_view(request, *args,**kwargs):
                 shift_[shift]+=1
     
     Shift=[shift_[i] for i in ["AM","PM"]]
+
     info={
         "siquirrel_month": list_squirrels,
         "primary_color": primary_color,
+        "Age": _Age,
         "Shift":Shift
 
     }
