@@ -38,15 +38,15 @@ def home_view(request, *args,**kwargs):
     primary_color=[color_[i] for i in ['Gray','Cinnamon','Black']]
 
      #creates a list that counts the number of squirrels by age
-    age_={'Adult':0,'Juvenile':0}
+    age_={'Adult':0, 'Juvenile':0}
 
     for squirrel_age in ['Adult','Juvenile']:
         for i in length:
             if obj[i]["Age"] == squirrel_age:
                 age_[squirrel_age]+=1
-    _Age=[age_[i] for i in ['Adult','Juvenile']]
+    Age=[age_[i] for i in ['Adult','Juvenile']]
     
-  
+    #creates a pie chart of sightings by shift  
     shift_={"AM":0, "PM":0}
     for shift in ["AM","PM"]:
         for i in length:
@@ -58,7 +58,7 @@ def home_view(request, *args,**kwargs):
     info={
         "siquirrel_month": list_squirrels,
         "primary_color": primary_color,
-        "Age": _Age,
+        "Age": Age,
         "Shift":Shift
 
     }
