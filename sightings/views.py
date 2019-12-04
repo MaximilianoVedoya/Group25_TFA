@@ -53,6 +53,7 @@ def home_view(request, *args,**kwargs):
                 shift_[shift]+=1
     
     Shift=[shift_[i] for i in ["AM","PM"]]
+
     info={
         "siquirrel_month": list_squirrels,
         "primary_color": primary_color,
@@ -87,8 +88,7 @@ def add_view(request, *args,**kwargs):
     }
     return render(request,"add.html",context)
 
-def update_view(request, Unique_Squirrel_ID):
-    print(request.user)
+def update_view(request, *args,**kwargs):
     #obj=new_sighting.objects.values()
     form= new_sighting_form(request.POST or None)
     if form.is_valid():
