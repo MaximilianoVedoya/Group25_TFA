@@ -4,6 +4,8 @@ from .models import new_sighting
 from .forms import new_sighting_form 
 import random as random
 from django.views.generic import ListView
+from django.core.paginator import Paginator
+
 
 
 def home_view(request, *args,**kwargs):
@@ -33,6 +35,15 @@ def home_view(request, *args,**kwargs):
             if obj[i]["Primary_Fur_Color"] == squirrel_color:
                 color_[squirrel_color]+=1
     primary_color=[color_[i] for i in ['Gray','Cinnamon','Black']]
+
+     #creates a list that counts the number of squirrels by age
+    age_={'Adult':0,'Juvenile':0}
+
+    for squirrel_age in ['Adult','Juvenile']:
+        for i in length:
+            if obj[i]["Age"] == squirrel_age:
+                age_[squirrel_age]+=1
+    _Age=[age_[i] for i in ['Adult','Juvenile']]
     
   
     shift_={"AM":0, "PM":0}
@@ -42,10 +53,10 @@ def home_view(request, *args,**kwargs):
                 shift_[shift]+=1
     
     Shift=[shift_[i] for i in ["AM","PM"]]
-    
     info={
         "siquirrel_month": list_squirrels,
         "primary_color": primary_color,
+        "Age": _Age,
         "Shift":Shift
 
     }
@@ -76,45 +87,36 @@ def add_view(request, *args,**kwargs):
     }
     return render(request,"add.html",context)
 
-def sightings_view(request):
-    obj=new_sighting.objects.values()
-    length=new_sighting.objects.count()
-    if length>100:
-        length=100
-    squirrel= [
-        (   obj[i]['Latitude'],
-            obj[i]['Longitude'],
-            obj[i]['Unique_Squirrel_ID'],
-            obj[i]['Hectare'],
-            obj[i]['Shift'],
-            obj[i]['Date'],
-            obj[i]['Hectare_Squirrel_Number'],
-            obj[i]['Age'],
-            obj[i]['Primary_Fur_Color'],
-            obj[i]['Location'],
-            obj[i]['Specific_Location'],
-            obj[i]['Running'],
-            obj[i]['Chasing'],
-            obj[i]['Climbing'],
-            obj[i]['Eating'],
-            obj[i]['Foraging'],
-            obj[i]['Other_Activities'],
-            obj[i]['Kuks'],
-            obj[i]['Quaas'],
-            obj[i]['Moans'],
-            obj[i]['Tail_flags'],
-            obj[i]['Tail_twitches'],
-            obj[i]['Approaches'],
-            obj[i]['Indifferent'],
-            obj[i]['Runs_from']
-        ) for i in range(length)]
-    squirrels= {'squirrel' : squirrel }
-    return render(request,"sightings.html",squirrels)
+def update_view(request, Unique_Squirrel_ID):
+    print(request.user)
+    #obj=new_sighting.objects.values()
+    form= new_sighting_form(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context={
+       # 'instance' :obj, 
+        'form':form,
+    }
+    return render(request,"update.html",context)
 
-class DataList (ListView):
-    model = new_sighting
-    template_name= "data.html"
-    paginate_by=100
+def delete_view(request, *args,**kwargs):
+    obj=new_sighting.objects.values()
+    obj.delete()
+
+def sightings_view(request):
+    squirrel_list = new_sighting.objects.all()
+    paginator = Paginator(squirrel_list, 25) # Show 25 contacts per page
+    page = request.GET.get('page')
+    squirrels = paginator.get_page(page)
+    return render(request, 'sightings.html', {'squirrels': squirrels})
+
+
+def DataList(request):
+    squirrel_list = new_sighting.objects.all()
+    paginator = Paginator(squirrel_list, 25) # Show 25 contacts per page
+    page = request.GET.get('page')
+    squirrels = paginator.get_page(page)
+    return render(request, 'data.html', {'squirrels': squirrels})
 
 
     

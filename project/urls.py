@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from sightings.views import home_view, map_view,sightings_view,add_view,DataList
+
+
+from sightings.views import home_view, map_view,sightings_view,add_view, update_view, delete_view,DataList
 
 urlpatterns = [
     path('', home_view,name='home'),
@@ -23,5 +25,7 @@ urlpatterns = [
     path('map/', map_view,name='map'),
     path('sightings/', sightings_view, name='sightings'),
     path('sightings/add', add_view, name='sightings_add'),
-    path('data/',DataList.as_view(),name='DataList'),
+    path('sightings/<Unique_Squirrel_ID>', update_view, name='sightings_update'),
+    path('sightings/delete', delete_view, name='sightings_delete'),
+    path('data/',DataList, name='data'),
 ]

@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
 <table class="table"
         data-toggle="table">
 
@@ -20,72 +18,130 @@
             <th scope="col">Specie</th>
             <th scope="col">Tail</th>
             <th scope="col">Reaction</th>
-            
+            <th scope="col">Modify/<br>Dlete</th><th 
          </tr>
+
         </thead>
         <tbody>
         
-        {% for info  in object_list %}
+        {% for squirrel in squirrels %}
         <tr>
             
-            <td><font size=2>Lat: {{info.Latitude}}<br>Long: {{info.Longitude}}</font></td>
-            <td><font size=2>{{id}}</font></td>
+            <td><font size=2>Lat: {{squirrel.Latitude}}<br>Long: {{squirrel.Longitude}}</font></td>
+            <td><font size=2>{{squirrel.Unique_Squirrel_ID}}</font></td>
             <td><font size=2>
-                    Hectare: {{hec}} <br>
-                    Number: {{hec2}}
+                    Hectare: {{squirrel.Hectare}} <br>
+                    Number: {{squirrel.Hectare_Squirrel_Number}}
             </font></td>
-            <td><font size=2>{{shift}}</font></td>
-            <td><font size=2>{{date}}</font></td>
+            <td><font size=2>{{squirrel.Shift}}</font></td>
+            <td><font size=2>{{squirrel.Date}}</font></td>
       
-            <td><font size=2>{{age}}</font></td>
-            <td style= "width: fit-content;"><font size=2>{{primaryc}}</font></td>
+            <td><font size=2>{{squirrel.Age}}</font></td>
+            <td style= "width: fit-content;"><font size=2>{{squirrel.Primary_Fur_Color}}</font></td>
             <td><font size=2>
-                    Location: {{location}} <br>
-                    Specific Location: {{slocation}}
+                    {{squirrel.Location}} <br>
+                    {{squirrel.Specific_Location}}
             </font></td>
             <td><font size=2>
-                Running: {{r}} <br> 
-                Chasing: {{ch}}<br> 
-                Climing: {{cl}}<br>
-                Eating: {{eat}}<br>
-                Foraging: {{for}}<br>
+
+                {% if squirrel.Running %}
+                        <br>Running
+                {%endif%}
+                
+                {% if squirrel.Chasing %}
+                        <br>Chasing
+                {%endif%}
+                
+                {% if squirrel.Climing %}
+                        <br>Climing
+                {%endif%}
+
+                {% if squirrel.Eating %}
+                        <br>Eating
+                {%endif%}
+
+                {% if squirrel.Foraging %}
+                        <br>Foraging
+                {%endif%}
+             
             </font>
             </td>
             <td><font size=2>
-                    Kuks: {{k}} <br> 
-                    Quaas: {{q}}<br> 
-                    Moans: {{m}}<br>
+                    {% if squirrel.Kuks %}
+                        Kuks
+                    {%endif%}
+                    
+                    {% if squirrel.Quaas %}
+                        Quass
+                    {%endif%}
+                    
+                    {% if squirrel.Moans %}
+                        Moans
+                    {%endif%}
+                    <!-- {% if squirrel.Kuks == squirrel.Quaas and squirrel.Moans == squirrel.Quaas%}
+                    Unknwon
+                        {%endif%} -->
             </font>
             </td>
             <td><font size=2>
-                    Tail Flags: {{tf}} <br> 
-                    Tail Twiches: {{tt}}<br> 
+                {% if squirrel.Tail_flags %}
+                        <br>Tail Flags
+                {%endif%}
+                    
+                {% if squirrel.Tail_twitches %}
+                        <br>Tail Twiches
+                {%endif%}
+                
+                    
             </font>
             </td>
 
             <td><font size=2>
-                    Approuches: {{ap}} <br> 
-                    Indifferent: {{in}}<br> 
-                    Runs From: {{rf}}<br>
+                {% if squirrel.squirrel.Approaches %}
+                        <br>Approuches
+                {%endif%}
+                
+                {% if squirrel.Indifferent%}
+                        <br>Indifferent
+                {%endif%}
+
+                {% if squirrel.Runs_from%}
+                        <br>Runs From
+                {%endif%}
+
             </font>
             </td>
+
+            <td>
+                 <button type="button" class="btn btn-primary btn-sm btn-block" onclick="window.location.href='update'">Modify</button>
+                 <button type="button" class="btn btn-danger btn-sm btn-block">Delete</button>
+            </td>
+
         
         </tr>
         {% endfor %}
 
-        
-        
 </table>
 
 
-<!-- 
-<h2>Somehing</h2>
-    <ul>
-        {% for Latitude in object_list %}
-            <li>{{Latitude.Date}}</li>
-        {% endfor %}
-    </ul>
+ <div class="pagination">
+        <span class="step-links">
+            {% if squirrels.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ squirrels.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ squirrels.number }} of {{ squirrels.paginator.num_pages }}.
+            </span>
+    
+            {% if squirrels.has_next %}
+                <a href="?page={{ squirrels.next_page_number }}">next</a>
+                <a href="?page={{ squirrels.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
 
-{% endblock content %} -->
 
+{% endblock content %}
 
