@@ -27,5 +27,4 @@ urlpatterns = [
     path('sightings/delete', delete_view, name='sightings_delete'),
     path('data/',DataList, name='data'),
     path('sightings/<str:Unique_Squirrel_ID>/',update_view, name='sightings_update'),
-    
     ]
