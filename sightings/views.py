@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import new_sighting
 from .forms import new_sighting_form 
 import random as random
 from django.views.generic import ListView
 from django.core.paginator import Paginator
+
 
 
 
@@ -88,17 +89,6 @@ def add_view(request, *args,**kwargs):
     }
     return render(request,"add.html",context)
 
-def update_view(request, *args,**kwargs):
-    #obj=new_sighting.objects.values()
-    form= new_sighting_form(request.POST or None)
-    if form.is_valid():
-        form.save()
-    context={
-       # 'instance' :obj, 
-        'form':form,
-    }
-    return render(request,"update.html",context)
-
 def delete_view(request, *args,**kwargs):
     obj=new_sighting.objects.values()
     obj.delete()
@@ -110,7 +100,6 @@ def sightings_view(request):
     squirrels = paginator.get_page(page)
     return render(request, 'sightings.html', {'squirrels': squirrels})
 
-
 def DataList(request):
     squirrel_list = new_sighting.objects.all()
     paginator = Paginator(squirrel_list, 25) # Show 25 contacts per page
@@ -118,5 +107,16 @@ def DataList(request):
     squirrels = paginator.get_page(page)
     return render(request, 'data.html', {'squirrels': squirrels})
 
+def update_view(request, Unique_Squirrel_ID):
+    # return HttpResponse("You're looking at question %s." % Unique_Squirrel_ID)
+    # squirrels = new_sighting.objects.filter(Unique_Squirrel_ID =Unique_Squirrel_ID)
+    # squirrels=squirrels.values()
+    instance = new_sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
+    form = new_sighting_form(request.POST or None, instance=instance)
+    if form.is_valid():
+          form.save()
+        #   return redirect()
+    return render(request, 'update.html', {'form': form})
+   
 
     

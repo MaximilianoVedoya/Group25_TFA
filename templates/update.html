@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <h1> Update a particular sighting </h1>
+
 <form method="POST"> {% csrf_token %}
     <ul>
     {{form.as_p}}
