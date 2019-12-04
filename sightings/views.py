@@ -126,7 +126,13 @@ def update_view(request, Unique_Squirrel_ID):
     if form.is_valid():
           form.save()
         #   return redirect()
-    return render(request, 'update.html', {'form': form})
+
+    context = {
+            "instance" : instance,
+            "form" : form,
+    }
+    #return render(request, 'update.html', {'form': form})
+    return render(request, 'update.html',context)
    
 
     
