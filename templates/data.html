@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- 
 <table class="table"
         data-toggle="table">
 
@@ -78,9 +78,7 @@
                     {% if squirrel.Moans %}
                         Moans
                     {%endif%}
-                    <!-- {% if squirrel.Kuks == squirrel.Quaas and squirrel.Moans == squirrel.Quaas%}
-                    Unknwon
-                        {%endif%} -->
+                
             </font>
             </td>
             <td><font size=2>
@@ -123,7 +121,6 @@
 
 </table>
 
-
  <div class="pagination">
         <span class="step-links">
             {% if squirrels.has_previous %}
@@ -141,7 +138,9 @@
             {% endif %}
         </span>
     </div>
+ -->
 
+{{squirrels}}
 
 {% endblock content %}
 
