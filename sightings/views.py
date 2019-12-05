@@ -89,10 +89,6 @@ def add_view(request, *args,**kwargs):
     }
     return render(request,"add.html",context)
 
-def delete_view(request, *args,**kwargs):
-    obj=new_sighting.objects.values()
-    obj.delete()
-
 def sightings_view(request):
     squirrel_list = new_sighting.objects.all()
     paginator = Paginator(squirrel_list, 25) # Show 25 contacts per page
@@ -108,15 +104,48 @@ def DataList(request):
     return render(request, 'data.html', {'squirrels': squirrels})
 
 def update_view(request, Unique_Squirrel_ID):
-    # return HttpResponse("You're looking at question %s." % Unique_Squirrel_ID)
-    # squirrels = new_sighting.objects.filter(Unique_Squirrel_ID =Unique_Squirrel_ID)
-    # squirrels=squirrels.values()
     instance = new_sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
     form = new_sighting_form(request.POST or None, instance=instance)
-    if form.is_valid():
+    print(request.method)
+    if form.is_valid() and request.method=="POST" :
           form.save()
-        #   return redirect()
     return render(request, 'update.html', {'form': form})
    
 
+def delete_view(request, Unique_Squirrel_ID):
+    template='delete.html'
+    info= get_object_or_404(new_sighting,Unique_Squirrel_ID=Unique_Squirrel_ID)
+
+    try:
+        if request.methdod == "POST":
+            form=new_sighting_form(request.POST,instance=info)
+            info.delete()
+            messages.success(request,'You have delete the record, that squirrrel is sad now')
+        else:
+            form=new_sighting_form(instance=info)
+    except Exception as e:
+        messages.warning(request,'the record could not be deleted: Error{}'.format(e))
+    context={
+        'form':form 
+    }
+    return render (request,template,context)
+
     
+    
+    
+ 
+ 
+ 
+    # instance = new_sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
+    # form = new_sighting_form(request.POST or None, instance=instance)
+    # if form.is_valid():
+    #       form.delete()
+    #     #   return redirect()
+    # return render(request, 'delete.html', {'form': form})
+    
+    
+    
+    
+    # obj=new_sighting.objects.values()
+    # obj.delete()
+    # return render(request, 'delete.html', {'form': form})

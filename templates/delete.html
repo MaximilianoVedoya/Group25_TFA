@@ -2,10 +2,7 @@
 {% block content %}
 <h1> Delete a particular sighting </h1>
 <form method="POST"> {% csrf_token %}
-    <ul>
-    {{form.as_p}}
-    <input type='submit' value='Delete'/>
-</ul>
+        {{form.as_p}}
 </form>
 
 {% endblock content %}
