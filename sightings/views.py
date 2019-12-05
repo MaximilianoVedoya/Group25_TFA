@@ -55,11 +55,21 @@ def home_view(request, *args,**kwargs):
     
     Shift=[shift_[i] for i in ["AM","PM"]]
 
+    #creates a pie chart to show location of squirrel  
+    location_={"Ground Plane":0, "Above Ground":0}
+    for location_choice in ["Ground Plane","Above Ground"]:
+        for i in length:
+            if obj[i]["Location"]== location_choice:
+                location_[location_choice]+=1
+    
+    Location=[location_[i] for i in ["Ground Plane","Above Ground"]]
+
     info={
         "siquirrel_month": list_squirrels,
         "primary_color": primary_color,
         "Age": Age,
-        "Shift":Shift
+        "Shift":Shift,
+        "Location":Location
 
     }
     return render(request,"home.html",info)
@@ -116,7 +126,13 @@ def update_view(request, Unique_Squirrel_ID):
     if form.is_valid():
           form.save()
         #   return redirect()
-    return render(request, 'update.html', {'form': form})
+
+    context = {
+            "instance" : instance,
+            "form" : form,
+    }
+    #return render(request, 'update.html', {'form': form})
+    return render(request, 'update.html',context)
    
 
     
