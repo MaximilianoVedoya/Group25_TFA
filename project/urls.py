@@ -24,6 +24,7 @@ urlpatterns = [
     path('map/', map_view,name='map'),
     path('sightings/', sightings_view, name='sightings'),
     path('sightings/add', add_view, name='sightings_add'),
+    path('sightings/delete', delete_view, name='sightings_delete'),
     path('data/',DataList, name='data'),
     path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
     ]
