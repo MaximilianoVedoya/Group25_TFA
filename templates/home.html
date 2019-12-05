@@ -9,9 +9,11 @@
 
 <div class="row">
     <div class="col-sm-6"> 
+            <h2 style="text-align: center;">Squirrel sighting during the year</h2>
     <canvas id="squirrels_month"></canvas>
     </div>
     <div class="col-sm-6"> 
+            <h2 style="text-align: center;">Squirrel's Primary Color</h2>
             <canvas id="Squirrel's Primary Color"></canvas>
     </div>
 </div>
@@ -25,6 +27,15 @@
             <h2 style="text-align: center;">Squirrel's Age</h2>
          <canvas id="Squirrel's Age"></canvas>
         </div>
+</div>
+
+<br>
+<div class="row">
+        <div class="col-sm-6"> 
+           <h2 style="text-align: center;">Squirrel's Location</h2>
+        <canvas id="Squirrel's Location"></canvas>
+        </div>
+
 </div>
 
 <script>
@@ -70,6 +81,15 @@ var name_4= "Squirrel's Age"
 var title_4="Squirrel's Age"
 var type_4="bar"
 setchart(labels_4,data_4,name_4,title_4,type_4)
+
+"Graph 5 Percentage of Squirrels by location"
+var labels_5 = ["Ground Plane","Above Ground"];
+var data_5= {{Location}};
+var name_5= "Squirrel's Location"
+var title_5="Squirrel's Location"
+var type_5="doughnut"
+setchart(labels_5,data_5,name_5,title_5,type_5)
+
 
 function setchart(label_,data_,name_,title_,type_)
     {

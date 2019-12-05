@@ -25,7 +25,5 @@ urlpatterns = [
     path('sightings/', sightings_view, name='sightings'),
     path('sightings/add', add_view, name='sightings_add'),
     path('data/',DataList, name='data'),
-    path('sightings/<str:Unique_Squirrel_ID>/',update_view, name='sightings_update'),
-    path('sightings/<str:Unique_Squirrel_ID>/', delete_view, name='sightings_delete'),
-    
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
     ]
