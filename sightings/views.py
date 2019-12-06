@@ -5,7 +5,7 @@ from .forms import new_sighting_form
 import random as random
 from django.views.generic import ListView
 from django.core.paginator import Paginator
-
+from django.shortcuts import redirect
 
 
 
@@ -14,13 +14,13 @@ def home_view(request, *args,**kwargs):
     o_length=new_sighting.objects.count()
     squirrels_month={i: 0 for i in range(1,13)}
 
-    # if the data is larger than 100, chose 100 random poitns, otherwise the server fries. 
+    # if the data is larger than 100, chose 100 random points, otherwise the server fries. 
     if o_length>100:
         length=[random.randint(1,o_length) for i in range(100)]
     else:
          length=[i for i in range(1,o_length)]
 
-    # Creates a list with the number of sightings detected per month 
+    # Creates a list with the number of sightings detected per day of the month 
     for m in range (1,13):
         for i in length:
                 if obj[i]["Date"].month == m:
@@ -125,7 +125,8 @@ def update_view(request, Unique_Squirrel_ID):
     form = new_sighting_form(request.POST or None, instance=instance)
     if form.is_valid():
           form.save()
-        #   return redirect()
+          return redirect(f'/sightings/')
+    
 
     context = {
             "instance" : instance,
