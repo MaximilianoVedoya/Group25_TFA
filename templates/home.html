@@ -4,13 +4,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 
-
-<h1 style= "text-align: center;">Main stats from the collected data</h1>
+<h1 style= "text-align: center;">Main stats from the collected data</h1><br>
 
 <div class="row">
     <div class="col-sm-6"> 
-            <h2 style="text-align: center;">Squirrel sighting during the year</h2>
-    <canvas id="squirrels_month"></canvas>
+            <h2 style="text-align: center;">Squirrel's Age</h2>
+            <canvas id="Squirrel's Age"></canvas>
     </div>
     <div class="col-sm-6"> 
             <h2 style="text-align: center;">Squirrel's Primary Color</h2>
@@ -19,24 +18,23 @@
 </div>
 <br>
 <div class="row">
-        <div class="col-sm-6"> 
+        <div class="col-sm-4"> 
            <h2 style="text-align: center;">Sightings by Shift</h2>
-        <canvas id="Sightings by shift"></canvas>
+            <canvas id="Sightings by shift"></canvas>
         </div>
-        <div class="col-sm-6"> 
-            <h2 style="text-align: center;">Squirrel's Age</h2>
-         <canvas id="Squirrel's Age"></canvas>
+        <div class="col-sm-4"> 
+            <h2 style="text-align: center;">Squirrel sighting during the year</h2>
+            <canvas id="squirrels_month"></canvas>
         </div>
-</div>
-
-<br>
-<div class="row">
-        <div class="col-sm-12"> 
-           <h2 style="text-align: center;">Squirrel's Location</h2>
-        <canvas id="Squirrel's Location"></canvas>
+        <div class="col-sm-4"> 
+                <h2 style="text-align: center;">Squirrel's Location</h2>
+                <canvas id="Squirrel's Location"></canvas>
         </div>
 
-</div>
+    </div>
+
+
+
 
 <script>
 
@@ -79,7 +77,7 @@ var labels_5 = ["Ground Plane","Above Ground"];
 var data_5= {{Location}};
 var name_5= "Squirrel's Location"
 var title_5="Squirrel's Location"
-var type_5="doughnut"
+var type_5="pie"
 setchart(labels_5,data_5,name_5,title_5,type_5)
 
 
