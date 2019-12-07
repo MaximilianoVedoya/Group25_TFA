@@ -6,6 +6,8 @@ class new_sighting_form(forms.ModelForm):
     Date= forms.DateField(widget=forms.DateInput(attrs={"placeholder": datetime.datetime.now().strftime("%x")}))
     class Meta:
         model = new_sighting
+
+        #Define each of fields associated with Squirrel sighting
         fields =[
             'Latitude', 
             'Longitude',

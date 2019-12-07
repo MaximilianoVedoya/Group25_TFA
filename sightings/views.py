@@ -7,7 +7,7 @@ from django.views.generic import ListView
 from django.core.paginator import Paginator
 from django.shortcuts import redirect
 
-# View to display stats of top 5 squirrel attributes
+# View to display stats of top 5 squirrel attributes by randomly selecting 100 samples
 def home_view(request, *args,**kwargs):
     obj=new_sighting.objects.values()
     o_length=new_sighting.objects.count()
@@ -102,6 +102,7 @@ def add_view(request, *args,**kwargs):
     }
     return render(request,"add.html",context)
 
+# View to display squirrel's sighting
 def sightings_view(request):
     squirrel_list = new_sighting.objects.all()
     paginator = Paginator(squirrel_list, 25) # Show 25 contacts per page
