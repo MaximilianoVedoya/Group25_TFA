@@ -94,6 +94,8 @@ def add_view(request, *args,**kwargs):
     if form.is_valid():
         form.save()
         form=new_sighting_form()
+        return redirect(f'/sightings/')
+
     context={
         'form':form
     }
@@ -118,9 +120,6 @@ def DataList(request):
     return render(request, 'data.html', {'squirrels': squirrels})
 
 def update_view(request, Unique_Squirrel_ID):
-    # return HttpResponse("You're looking at question %s." % Unique_Squirrel_ID)
-    # squirrels = new_sighting.objects.filter(Unique_Squirrel_ID =Unique_Squirrel_ID)
-    # squirrels=squirrels.values()
     instance = new_sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
     form = new_sighting_form(request.POST or None, instance=instance)
     if form.is_valid():
@@ -132,7 +131,6 @@ def update_view(request, Unique_Squirrel_ID):
             "instance" : instance,
             "form" : form,
     }
-    #return render(request, 'update.html', {'form': form})
     return render(request, 'update.html',context)
    
 
