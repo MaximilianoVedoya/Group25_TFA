@@ -126,7 +126,6 @@ def update_view(request, Unique_Squirrel_ID):
           form.save()
           return redirect(f'/sightings/')
     
-
     context = {
             "instance" : instance,
             "form" : form,
