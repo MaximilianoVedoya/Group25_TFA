@@ -8,7 +8,6 @@ from django.core.paginator import Paginator
 from django.shortcuts import redirect
 
 
-
 def home_view(request, *args,**kwargs):
     obj=new_sighting.objects.values()
     o_length=new_sighting.objects.count()
