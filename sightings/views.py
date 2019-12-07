@@ -7,7 +7,7 @@ from django.views.generic import ListView
 from django.core.paginator import Paginator
 from django.shortcuts import redirect
 
-
+# View to display stats of top 5 squirrel attributes
 def home_view(request, *args,**kwargs):
     obj=new_sighting.objects.values()
     o_length=new_sighting.objects.count()
@@ -27,7 +27,7 @@ def home_view(request, *args,**kwargs):
     list_squirrels=[squirrels_month[i] for i in range(1,13)]
 
     
-    #creates a list that counts the number of squirrels by color
+    #Creates a list that counts the number of squirrels by color
     color_={'Gray':0,'Cinnamon':0,'Black':0}
 
     for squirrel_color in ['Gray','Cinnamon','Black']:
@@ -72,7 +72,8 @@ def home_view(request, *args,**kwargs):
 
     }
     return render(request,"home.html",info)
-    
+
+# View to map 100 randomly sampled squirrel sightings   
 def map_view(request, *args,**kwargs):
     obj=new_sighting.objects.values()
     o_length=new_sighting.objects.count()
@@ -88,6 +89,7 @@ def map_view(request, *args,**kwargs):
     squirrel_location={"Location" : location}
     return render(request,"map.html",squirrel_location)
 
+# View to add new squirrel sightings
 def add_view(request, *args,**kwargs):
     form= new_sighting_form(request.POST or None)
     if form.is_valid():
@@ -114,6 +116,7 @@ def DataList(request):
     squirrels = paginator.get_page(page)
     return render(request, 'data.html', {'squirrels': squirrels})
 
+# View to update a particular squirrel sightings
 def update_view(request, Unique_Squirrel_ID):
     instance = new_sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
     form = new_sighting_form(request.POST or None, instance=instance)
