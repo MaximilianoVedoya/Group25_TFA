@@ -50,28 +50,3 @@ class Command(BaseCommand):
                     'Indifferent': squirrels[row]['Indifferent'], 
                     'Runs_from': squirrels[row]['Runs_from'],
                     })
-
-        
-            
-        
-        
-        
-        # sightings, new_sighting = app_labels[0].split('.')
-        # model= get_model(sightings, new_sighting)
-        
-        # meta = {
-        #     'file': str(options['path']),
-        #     'class': new_sighting,
-        #     'fields': ('Longitude', 'Latitude','Unique_Squirrel_ID', 'Hectare', 'Shift', 'Date', 'Hectare_Squirrel_Number', 'Age', 
-        #             'Primary_Fur_Color','Location','Specific_Location','Running','Chasing', 'Climbing','Eating' ,'Foraging','Other_Activities' , 'Kuks','Quaas', 'Moans', 'Tail_flags', 'Tail_twitches', 'Approaches', 'Indifferent', ' Runs_from')
-
-        # }
-        # # self._write_csv(meta)
-        
-        # f = open(meta['file'], 'w+')
-        # writer = csv.writer(f, encoding='utf-8')
-        # writer.writerow( meta['fields'] )
-        # for obj in meta['class'].objects.all():
-        #     row = [unicode(getattr(obj, field)) for field in meta['fields']]
-        #     writer.writerow(row)
-        # f.close()
