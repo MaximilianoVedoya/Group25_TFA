@@ -27,3 +27,297 @@ urlpatterns = [
     path('data/',DataList, name='data'),
     path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
     ]
+
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+vurlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+urlpatterns = [
+    path('', home_view,name='home'),
+    path('admin/', admin.site.urls),
+    path('map/', map_view,name='map'),
+    path('sightings/', sightings_view, name='sightings'),
+    path('sightings/add', add_view, name='sightings_add'),
+    path('data/',DataList, name='data'),
+    path('sightings/<Unique_Squirrel_ID>/',update_view, name='sightings_update'),
+    ]
+
