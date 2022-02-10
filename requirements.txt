@@ -24,7 +24,7 @@
 # pigar/sightings/models.py: 1
 # pigar/sightings/tests.py: 1
 # pigar/sightings/views.py: 2,6,7,8
-Django == 2.2.7
+Django == 2.2.27
 
 # setup.py: 8
 setuptools == 41.0.1
