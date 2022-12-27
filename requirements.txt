@@ -27,4 +27,4 @@
 Django == 2.2.7
 
 # setup.py: 8
-setuptools == 41.0.1
+setuptools == 65.5.1
